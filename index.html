@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Business Academy™ | Learn AI for Business Growth</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      background: white;
+      border-bottom: 1px solid #e5e7eb;
+      z-index: 100;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #10b981;
+    }
+
+    nav a {
+      color: #1f2937;
+      text-decoration: none;
+      margin-left: 2rem;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      color: #10b981;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 4rem 2rem;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(16,185,129,0.05) 0%, rgba(59,130,246,0.05) 100%);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #6b7280;
+      margin-bottom: 1.5rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero img {
+      width: 300px;
+      height: auto;
+      border-radius: 12px;
+      margin-top: 2rem;
+    }
+
+    /* Email Signup */
+    .email-section {
+      background: #10b981;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .email-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .email-form {
+      display: flex;
+      gap: 0.5rem;
+      max-width: 500px;
+      margin: 1.5rem auto 0;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .email-form input {
+      flex: 1;
+      min-width: 250px;
+      padding: 0.75rem 1rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 0.95rem;
+    }
+
+    .email-form button {
+      padding: 0.75rem 1.5rem;
+      background: #059669;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .email-form button:hover {
+      background: #047857;
+    }
+
+    .email-form button:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    .error-message {
+      color: #fecaca;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    /* Vision */
+    .vision {
+      padding: 4rem 2rem;
+    }
+
+    .vision h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .vision-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .vision-card {
+      padding: 2rem;
+      background: #f3f4f6;
+      border-radius: 12px;
+      border-left: 4px solid #10b981;
+    }
+
+    .vision-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .vision-card p {
+      color: #6b7280;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* Services */
+    .services {
+      background: #f9fafb;
+      padding: 4rem 2rem;
+    }
+
+    .services h2 {
+      font-size: 2rem;
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      padding: 2rem;
+      background: white;
+      border-radius: 12px;
+      border: 1px solid #e5e7eb;
+    }
+
+    .service-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: #10b981;
+    }
+
+    .service-card p {
+      font-size: 0.9rem;
+      color: #6b7280;
+      margin-bottom: 1rem;
+    }
+
+    .service-price {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #3b82f6;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-card button {
+      width: 100%;
+      padding: 0.75rem;
+      background: #10b981;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .service-card button:hover {
+      background: #059669;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      padding: 4rem 2rem;
+    }
+
+    .testimonials h2 {
+      font-size: 2rem;
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .testimonial-card {
+      padding: 2rem;
+      background: #f3f4f6;
+      border-radius: 12px;
+      border-left: 4px solid #10b981;
+    }
+
+    .testimonial-card p:first-child {
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .testimonial-card p:last-child {
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+
+    .testimonial-role {
+      font-size: 0.9rem;
+      color: #6b7280;
+    }
+
+    /* About */
+    .about {
+      background: #f9fafb;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .about h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .about p {
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      color: #6b7280;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Contact */
+    .contact {
+      background: #10b981;
+      color: white;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .contact-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .contact-links a:hover {
+      opacity: 0.8;
+    }
+
+    /* Footer */
+    footer {
+      background: #f3f4f6;
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #6b7280;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    footer a {
+      color: #10b981;
+      text-decoration: none;
+      margin: 0 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .nav-links {
+        gap: 1rem;
+        margin-left: auto;
+      }
+
+      nav a {
+        margin-left: 1rem;
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">ABA™</div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#vision">Vision</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>AI Business Academy™</h1>
+      <p>Your trusted learning space for AI clarity, confidence, and strategy</p>
+      <p>Overwhelmed by AI noise? You're not alone. Whether you're curious, cautious, or catching up—this is where it finally makes sense. <strong>No gimmicks. No overwhelm. Just real tools for real people.</strong></p>
+      <img src="https://images.unsplash.com/photo-1677442d019ceea3142bfa5ad92e51cff0afb1b90?w=400&h=400&fit=crop" alt="AI Learning">
+    </div>
+  </section>
+
+  <!-- Email Signup -->
+  <section class="email-section">
+    <div class="container">
+      <h2>Stay in the Loop</h2>
+      <p>Get clarity updates, workshop announcements, and AI insights sent straight to you.</p>
+      <form class="email-form" id="emailForm">
+        <input type="email" placeholder="Your email" id="emailInput" required>
+        <button type="submit" id="emailButton">Join</button>
+      </form>
+      <div class="error-message" id="errorMessage"></div>
+    </div>
+  </section>
+
+  <!-- Vision -->
+  <section class="vision" id="vision">
+    <div class="container">
+      <h2>Our Vision</h2>
+      <div class="vision-grid">
+        <div class="vision-card">
+          <h3>Clarity</h3>
+          <p>From scattered ideas to clear direction. You'll know exactly how AI fits into your business.</p>
+        </div>
+        <div class="vision-card">
+          <h3>Confidence</h3>
+          <p>Hands-on training that builds your skills and removes the intimidation factor.</p>
+        </div>
+        <div class="vision-card">
+          <h3>Strategy</h3>
+          <p>Tools and insights to build stronger systems and future-ready business assets.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="services" id="services">
+    <div class="container">
+      <h2>Classes & Workshops</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>AI Decision Session</h3>
+          <p>Not sure where to start? Let's make that decision easier.</p>
+          <div class="service-price">$47</div>
+          <button>Book Now</button>
+        </div>
+        <div class="service-card">
+          <h3>Clarity & Strategy Consultation</h3>
+          <p>Personalized roadmap & clear plan</p>
+          <div class="service-price">$197</div>
+          <button>Book Now</button>
+        </div>
+        <div class="service-card">
+          <h3>How-To AI™ Foundations</h3>
+          <p>No Fluff. No Hype. Just Real AI Skills for Real People.</p>
+          <div class="service-price">$147</div>
+          <button>Book Now</button>
+        </div>
+        <div class="service-card">
+          <h3>How-To Business™ Series</h3>
+          <p>From idea to asset. From scattered to strategic.</p>
+          <div class="service-price">$197–$397</div>
+          <button>Book Now</button>
+        </div>
+        <div class="service-card">
+          <h3>Prompt Like a Pro™</h3>
+          <p>Craft prompts that work for you, not just anyone.</p>
+          <div class="service-price">$147</div>
+          <button>Book Now</button>
+        </div>
+        <div class="service-card">
+          <h3>Clarity Clinic™</h3>
+          <p>When you have too many ideas and not enough direction.</p>
+          <div class="service-price">$197</div>
+          <button>Book Now</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <div class="container">
+      <h2>From Our Learners</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p>"I attended an AI class with Lisa. She was knowledgeable. Informative and very pleasant. I learned a lot about the different types of AI sites, their uses and how to use them. I highly recommend!!"</p>
+          <p>Antoinette Stewart</p>
+          <p class="testimonial-role">Small Business Owner</p>
+        </div>
+        <div class="testimonial-card">
+          <p>"My team experienced an amazing session on AI. Lisa knows her stuff"</p>
+          <p>Shalinda Lee</p>
+          <p class="testimonial-role">Team Leader</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about">
+    <div class="container">
+      <h2>Meet Your Instructor</h2>
+      <p>With 20+ years in entrepreneurship across industries and certifications from <strong>Vanderbilt University</strong> (Prompt Engineering) and <strong>Johns Hopkins University</strong> (AI Business Strategy), I created ABA because I saw a need: entrepreneurs and small business owners deserve to learn AI without the overwhelm.</p>
+      <p>I speak fluent real talk. I teach without ego. And I genuinely believe AI is your tool—not your threat.</p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <h2>Ready to Start?</h2>
+      <div class="contact-links">
+        <a href="tel:470-317-9270">📞 470-317-9270</a>
+        <a href="mailto:info@aibusinessacademy.ai">📧 info@aibusinessacademy.ai</a>
+      </div>
+      <p>811 Pavilion Court, McDonough, GA 30253</p>
+      <p style="margin-top: 2rem; font-size: 0.85rem;">ABA is the signature education program under <a href="https://closethegapconsulting.com" style="color: white; text-decoration: underline;">Close the Gap Consulting</a></p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">Contact</a>
+      <p style="margin-top: 1rem;">© 2025 AI Business Academy™. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const emailForm = document.getElementById('emailForm');
+    const emailInput = document.getElementById('emailInput');
+    const emailButton = document.getElementById('emailButton');
+    const errorMessage = document.getElementById('errorMessage');
+
+    emailForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = emailInput.value;
+
+      if (!email) return;
+
+      emailButton.disabled = true;
+      emailButton.textContent = 'Adding...';
+      errorMessage.textContent = '';
+
+      try {
+        const response = await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, list: 'aba' })
+        });
+
+        if (response.ok) {
+          emailButton.textContent = '✓ Joined';
+          emailInput.value = '';
+          setTimeout(() => {
+            emailButton.disabled = false;
+            emailButton.textContent = 'Join';
+          }, 3000);
+        } else {
+          errorMessage.textContent = 'Something went wrong. Try again.';
+          emailButton.disabled = false;
+          emailButton.textContent = 'Join';
+        }
+      } catch (error) {
+        errorMessage.textContent = 'Connection error. Please try again.';
+        emailButton.disabled = false;
+        emailButton.textContent = 'Join';
+      }
+    });
+  </script>
+</body>
+</html>
